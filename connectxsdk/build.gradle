@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace 'com.connectx.connectxsdk'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -43,7 +43,7 @@ dependencies {
 }
 
 group = "tech.connect-x"  // Ensure this matches your JitPack groupId
-version = "1.0.5"
+version = "1.0.6"
 
 publishing {
     publications {
@@ -54,7 +54,7 @@ publishing {
 
             groupId = 'tech.connect-x'
             artifactId = 'connectx-mobile-sdk'
-            version = '1.0.5'
+            version = '1.0.6'
         }
     }
 }

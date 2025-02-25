@@ -45,7 +45,7 @@ public class ConnectXManager {
 
     private static Context userContext;
 
-    private static final String API_DOMAIN = "https://connect-x-poon-beta-2-4a43443547d7.herokuapp.com/connectx/api";
+    private static final String API_DOMAIN = "https://backend.connect-x.tech/connectx/api";
     private static final String GENERATE_COOKIE_URL = "https://backend.connect-x.tech/connectx/api/webtracking/generateCookie";
 
     private OkHttpClient client;
