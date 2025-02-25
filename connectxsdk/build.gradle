@@ -43,7 +43,7 @@ dependencies {
 }
 
 group = "tech.connect-x"  // Ensure this matches your JitPack groupId
-version = "1.0.4"
+version = "1.0.5"
 
 publishing {
     publications {
@@ -54,7 +54,7 @@ publishing {
 
             groupId = 'tech.connect-x'
             artifactId = 'connectx-mobile-sdk'
-            version = '1.0.4'
+            version = '1.0.5'
         }
     }
 }
