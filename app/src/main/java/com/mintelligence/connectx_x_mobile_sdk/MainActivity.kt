@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                 withContext(Dispatchers.IO) {
                     // Run the initialization on a background thread
                     ConnectXManager.initialize(
-                        applicationContext, "YOUR_TOKEN", "YOUR_ORG_ID")
+                        applicationContext, "YOUR_TOKEN", "YOUR_ORGANIZE_ID")
 
                     val trackingData = mapOf(
                         "cx_event" to "open app kotlin",
