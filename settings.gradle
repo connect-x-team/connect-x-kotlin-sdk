@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 rootProject.name = "connectx_x_mobile_sdk"
 include ':app'
 include ':connectxmobilesdk'
-include ':connectxmobilesdk'
