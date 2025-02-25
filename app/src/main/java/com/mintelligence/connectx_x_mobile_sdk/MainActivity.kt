@@ -30,7 +30,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.mintelligence.connectx_x_mobile_sdk.ui.theme.Connectx_x_mobile_sdkTheme
-import com.mintelligence.connectxmobilesdk.ConnectXManager
+import com.connectx.connectxsdk.ConnectXManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
