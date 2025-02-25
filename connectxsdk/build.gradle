@@ -42,6 +42,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
 
+group = "tech.connect-x"  // Ensure this matches your JitPack groupId
+version = "1.0.4"
+
 publishing {
     publications {
         create("release", MavenPublication) {
