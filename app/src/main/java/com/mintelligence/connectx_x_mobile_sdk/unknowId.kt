@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import com.mintelligence.connectxmobilesdk.ConnectXManager
+import com.connectx.connectxsdk.ConnectXManager
 import kotlinx.coroutines.launch
 
 class UnknownId(private val lifecycleOwner: LifecycleOwner, private val unknownIdText: (String) -> Unit) {
