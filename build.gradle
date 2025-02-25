@@ -6,5 +6,5 @@ plugins {
 //    id("com.vanniktech.maven.publish") version "0.30.0"
 }
 
-group = 'com.mintelligence.connectxmobilesdk'
-version = '0.1'
+//group = 'com.mintelligence.connectxmobilesdk'
+//version = '0.1'
