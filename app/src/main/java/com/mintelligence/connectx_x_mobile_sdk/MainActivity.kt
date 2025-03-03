@@ -173,20 +173,33 @@ fun AppContent() {
                         "cx_lastName" to name.text,
                     )
 
-                    val tracking = mapOf(
+                    val tracking = mapOf( // Optional
                         "cx_title" to "kotlin tracking",
                         "cx_type" to "Android Mobile",
                     )
-                    val eventData = mapOf(
-                        "cx_timeStamp" to "2025-01-01T00:00:00Z"
+                    val form = mapOf( // Optional
+                        "cx_subject" to "YOUR_SUBJECT",
+                        "cx_desc" to "YOUR_DESC"
+                        // ... Other Form Field.
                     )
-                    val options = mapOf(
-                        "updateCustomer" to false
+
+                    val options = mapOf( // Optional
+                        "updateCustomer" to true, // Enable/Disable Customer Data Update
+                        "customs" to listOf(
+                            // For adding values in the Object that you want to reference with the Customer Object.
+                            mapOf("customObjectA" to mapOf("cx_Name" to "Keyword")),
+                            mapOf("customObjectB" to mapOf("cx_Name" to "Keyword"))
+                        ),
+                        "updateSomeFields" to mapOf(
+                            // For adding cases where you want to update some values in the Customers Object.
+                            "bmi" to 25,
+                            "weight" to 55
+                        )
                     )
 
                     // Call cxIdentify method
                     ConnectXManager.cxIdentify(
-                        mapOf("key" to "cx_Name", "customers" to customerData, "tracking" to tracking)
+                        mapOf("key" to "cx_Name", "customers" to customerData, "tracking" to tracking, "form" to form, "options" to options)
                     )
                     println("Name: ${name.text}, Email: ${email.text}")
                     isFormVisible = false
