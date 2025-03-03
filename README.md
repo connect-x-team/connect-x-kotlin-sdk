@@ -1,5 +1,3 @@
-# connect-x-kotlin-sdk
-
 # ConnectX Mobile SDK
 
 The **ConnectX Kotlin Mobile SDK** is a Android library designed to simplify the integration of ConnectX's tracking and data management features into your mobile applications. It provides functionalities for tracking events, managing user data, and interacting with backend APIs, ensuring seamless user analytics and experience tracking.
@@ -19,7 +17,7 @@ The **ConnectX Kotlin Mobile SDK** is a Android library designed to simplify the
 ## Getting started
 
 ### Prerequisites
-- A valid **ConnectX API Token** and **Organize ID** are required for initialization.Add it in your root settings.gradle at the end of repositories:
+- A valid **ConnectX API Token** and **Organize ID** are required for initialization.
 
 ### Installation
 Run the following command to add the package to your project:
@@ -71,6 +69,7 @@ val trackingData = mapOf(
     "cx_source" to "YOUR_SOURCE",
     // other Activity field
 )
+
 ConnectXManager.cxTracking(trackingData)
 ```
 
