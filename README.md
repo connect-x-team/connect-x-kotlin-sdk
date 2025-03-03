@@ -114,7 +114,7 @@ val payload = mapOf(
 ConnectXManager.cxIdentify(payload)
 ```
 
-### 5. Open Tickets
+### 5. Open Ticket
 
 ```kotlin
 val payload = mapOf(
@@ -149,7 +149,7 @@ val payload = mapOf(
 ConnectXManager.cxOpenTicket(payload)
 ```
 
-### 6. Create or Update Custom Objects
+### 6. Create or Update Custom records
 
 To create a new custom object, you must generate a unique referenceId to identify the record. If you pass a docId, the object is updated instead of being created.
 
