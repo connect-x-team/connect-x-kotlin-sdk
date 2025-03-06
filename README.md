@@ -36,7 +36,7 @@ Add it in your root settings.gradle at the end of repositories:
 
 ```grandle
 dependencies {
-   implementation 'com.github.connect-x-team:connect-x-kotlin-sdk:1.0.7'
+   implementation 'tech.connect-x:connect-x-kotlin-sdk:x.x.x'
 }
 ```
 Add the dependency
