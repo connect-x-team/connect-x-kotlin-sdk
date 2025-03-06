@@ -220,7 +220,7 @@ public class ConnectXManager {
         clientData.put("cx_networkType", getNetworkType(userContext));
         clientData.put("cx_appVersion", getAppVersion());
         clientData.put("cx_appBuild", getAppBuildVersion());
-        clientData.put("cx_libraryVersion", "1.0.8");
+        clientData.put("cx_libraryVersion", "1.0.9");
         clientData.put("cx_libraryPlatform", "Android");
         clientData.put("cx_fingerprint", getDeviceId(userContext));
         clientData.put("cx_deviceId", getDeviceId(userContext));
