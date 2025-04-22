@@ -57,7 +57,12 @@ Note: You can generate the YOUR_API_TOKEN from [Connect-X](https://app.connect-x
 Organization Settings → SDK Tracking.
 
 ```kotlin
-ConnectXManager.initialize(applicationContext, "YOUR_TOKEN", "YOUR_ORGANIZE_ID")
+ConnectXManager.initialize(
+    applicationContext,
+    "YOUR_TOKEN",
+    "YOUR_ORGANIZE_ID",
+    "YOUR_ENV" //optional
+)
 ```
 
 ### 3. Track Events

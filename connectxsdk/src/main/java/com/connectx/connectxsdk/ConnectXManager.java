@@ -45,8 +45,8 @@ public class ConnectXManager {
 
     private static Context userContext;
 
-    private static final String API_DOMAIN = "https://backend.connect-x.tech/connectx/api";
-    private static final String GENERATE_COOKIE_URL = "https://backend.connect-x.tech/connectx/api/webtracking/generateCookie";
+    private String API_DOMAIN = "https://backend.connect-x.tech/connectx/api";
+    private String GENERATE_COOKIE_URL = "https://backend.connect-x.tech/connectx/api/webtracking/generateCookie";
 
     private OkHttpClient client;
 
@@ -72,7 +72,7 @@ public class ConnectXManager {
         return instance;
     }
 
-    public void initialize(String token, String organizeId) {
+    public void initialize(String token, String organizeId, String env) {
         if (token.isEmpty()) {
             throw new IllegalArgumentException("Token must not be empty.");
         }
@@ -82,6 +82,12 @@ public class ConnectXManager {
 
         this.token = token;
         this.organizeId = organizeId;
+//        this.env = env;
+
+        if (env != null && !env.trim().isEmpty()) {
+            this.API_DOMAIN = "https://backend-" + env + ".connect-x.tech/connectx/api";
+            this.GENERATE_COOKIE_URL = this.API_DOMAIN + "/webtracking/generateCookie";
+        }
 
         // Get cookie (This could be handled via a network request)
         this.cookie = getUnknownIdFromServer();
@@ -363,7 +369,11 @@ public class ConnectXManager {
     // Helper methods for easier usage
 
     public static void initialize(Context context, String token, String organizeId) {
-        getInstance(context).initialize(token, organizeId);
+        getInstance(context).initialize(token, organizeId, null);
+    }
+
+    public static void initialize(Context context, String token, String organizeId, String env) {
+        getInstance(context).initialize(token, organizeId, env);
     }
 
     public static void cxTracking(Map<String, String> trackingData) {
