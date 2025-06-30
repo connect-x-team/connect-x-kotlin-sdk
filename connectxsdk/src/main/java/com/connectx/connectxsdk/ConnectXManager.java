@@ -34,6 +34,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class ConnectXManager {
 
@@ -238,7 +239,7 @@ public class ConnectXManager {
         return clientData;
     }
 
-    private void cxPost(String endpoint, String data) throws IOException {
+    private String cxPost(String endpoint, String data) throws IOException {
         RequestBody body = RequestBody.create(data, MediaType.parse("application/json"));
         Request request = new Request.Builder()
                 .url(API_DOMAIN + endpoint)
@@ -247,9 +248,25 @@ public class ConnectXManager {
                 .addHeader("Authorization", "Bearer " + token)
                 .build();
         try (Response response = client.newCall(request).execute()) {
+//            if (!response.isSuccessful()) {
+//                throw new IOException("Request failed: " + response.message());
+//            }
+
             if (!response.isSuccessful()) {
-                throw new IOException("Request failed: " + response.message());
+                // Throw exception with more details
+                throw new IOException("Request failed: "+ response.code() + ""+ response.message());
             }
+            // The response body can be null, so we must handle it.
+            // We return the body string or throw an exception if it's null.
+            Log.println(Log.INFO,"cxPost Response" ,response.body().toString());
+            ResponseBody resBody = response.body();
+            if (resBody == null) {
+                throw new IOException("Response body was null");
+            }
+            return resBody.string();
+        } catch (Exception e) {
+            Log.e("ConnectxManager" ,e.getMessage());
+            throw new IOException("Request failed: "+ e.getMessage());
         }
     }
 
@@ -301,7 +318,7 @@ public class ConnectXManager {
         }
     }
 
-    public void createRecord(String objectName, List<Map<String, Object>> bodies) {
+    public String createRecord(String objectName, List<Map<String, Object>> bodies) {
         // Create a TypeToken for the List<Map<String, Object>> type
         Type type = new TypeToken<List<Map<String, Object>>>() {}.getType();
 
@@ -315,7 +332,7 @@ public class ConnectXManager {
 
 
             // Make the POST request
-            cxPost("/object/" + objectName + "/composite", objectsArray.toString());
+            return cxPost("/object/" + objectName + "/composite", objectsArray.toString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.e("ConnectxManager", "JSONException in createRecord: " + e.getMessage());
@@ -323,6 +340,7 @@ public class ConnectXManager {
             e.printStackTrace();
             Log.e("ConnectxManager", "IOException in createRecord: " + e.getMessage());
         }
+        return "Something went wrong";
     }
 
 
@@ -392,8 +410,8 @@ public class ConnectXManager {
 //        getInstance(null).identify(key, customers, tracking, form, options);
 //    }
 
-    public static void cxCreateRecord(String objectName, List<Map<String, Object>> bodies) {
-        getInstance(null).createRecord(objectName, bodies);
+    public static String cxCreateRecord(String objectName, List<Map<String, Object>> bodies) {
+        return getInstance(null).createRecord(objectName, bodies);
     }
 
     public static void cxOpenTicket(Map<String, Object> bodies) {

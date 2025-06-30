@@ -344,9 +344,9 @@ fun AppContent() {
                         )
                     )
 
-                    ConnectXManager.cxCreateRecord(objectName.text, data)
+                    val res: String = ConnectXManager.cxCreateRecord(objectName.text, data)
 
-                    println("Name: ${objectName.text}, Email: ${cxName.text}")
+                    println("Name: ${objectName.text}, Email: ${cxName.text}, " + res)
                     isRecordVisible = false
                     ConnectXManager.cxTracking(mapOf(
                         "cx_event" to "submit create record kotlin",
