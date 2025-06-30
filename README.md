@@ -167,7 +167,7 @@ val data = listOf(
     )
 )
 
-ConnectXManager.cxCreateRecord(objectName, data)
+val result = ConnectXManager.cxCreateRecord(objectName, data)
 
 ```
 
